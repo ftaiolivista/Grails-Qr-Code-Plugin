@@ -1,0 +1,14 @@
+Creates QRCode as part of your Grails application. A simple to use TagLib provides intuitive ways to embed QRCodes directly onto any page in your Grails application.
+
+For example embedding this simple tag in your main.gsp will create a QRCode show/hide block on every page in your application allowing for easy sharing with an Android or iPhone device that has a QRCode barcode reader installed.
+
+<qrcode:link />
+
+This tag creates a QRCode containing any text you want to embed in a QRCode:
+
+<qrcode:image text="Some arbitrary text."/>
+
+Changelog
+0.3 
+    zxing 1.6
+    support for UTF8 in qr codes

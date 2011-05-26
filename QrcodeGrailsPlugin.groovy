@@ -25,8 +25,8 @@ class QrcodeGrailsPlugin {
             "grails-app/views/error.gsp"
     ]
 
-    def author = "Shawn Hartsock"
-    def authorEmail = "hartsock@acm.org"
+    def author = "Shawn Hartsock, Taioli Fabiano"
+    def authorEmail = "hartsock@acm.org, ftaioli@vista.it"
     def title = "QR Code plugin"
     def description = '''\\
 This plugin allows you to create QR codes as part of your Grails
