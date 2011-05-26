@@ -17,7 +17,7 @@ package org.codehaus.groovy.grails.plugins.qrcode
 
 import com.google.zxing.qrcode.QRCodeWriter
 import com.google.zxing.BarcodeFormat
-import com.google.zxing.qrcode.encoder.ByteMatrix
+import com.google.zxing.common.ByteMatrix
 
 import java.awt.Color
 import java.awt.image.BufferedImage
@@ -29,9 +29,6 @@ import java.awt.geom.AffineTransform
 
 import javax.media.jai.JAI
 import javax.media.jai.PlanarImage
-import com.google.zxing.EncodeHintType
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel
-
 
 /**
  * @author "Shawn Hartsock" <hartsock@acm.org>
@@ -76,14 +73,11 @@ class QRCodeRenderer {
     * Draws a simple block (not useful outside this class
     */
   private void drawBlock(Graphics2D graphics, Color color, int x, int y, int w = 1, int h = 1) {
-        //    def block = new Rectangle(w, h)
-        //    block.setLocation(x, y)
-        //    graphics.setColor(color)
-        //    graphics.draw(block)
-        //    graphics.fill(block)
-        //graphics.stroke = new java.awt.BasicStroke(1)
-        graphics.color = color
-        graphics.fillRect(x, y, w,h)
+    def block = new Rectangle(w, h)
+    block.setLocation(x, y)
+    graphics.setColor(color)
+    graphics.draw(block)
+    graphics.fill(block)
   }
 
   /**
@@ -114,9 +108,7 @@ class QRCodeRenderer {
   java.awt.image.RenderedImage render(String data, int width, int height) {
     // first we render the matrix completely unscaled. One pixel per byte.
     int size = calculateMatrixSize(data)
-        def hints =[ (EncodeHintType.ERROR_CORRECTION): ErrorCorrectionLevel.M,
-                     (EncodeHintType.CHARACTER_SET):'UTF8' ]
-        ByteMatrix matrix = qrcodeWriter.encode(data, format, size, size, hints)
+    ByteMatrix matrix = qrcodeWriter.encode(data, format, size, size)
 
     // NEVER allow the user to request an image smaller than the minimum pixels
     // needed to render one bit per pixel from our byte matrix.
