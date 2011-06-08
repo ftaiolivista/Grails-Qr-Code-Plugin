@@ -1,6 +1,6 @@
 <plugin name='qrcode' version='0.3' grailsVersion='1.2.1 &gt; *'>
-  <author>Shawn Hartsock</author>
-  <authorEmail>hartsock@acm.org</authorEmail>
+  <author>Shawn Hartsock, Taioli Fabiano</author>
+  <authorEmail>hartsock@acm.org, ftaioli@vista.it</authorEmail>
   <title>QR Code plugin</title>
   <description>\
 This plugin allows you to create QR codes as part of your Grails

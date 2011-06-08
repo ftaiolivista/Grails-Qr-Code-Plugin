@@ -115,7 +115,7 @@ class QRCodeRenderer {
     java.awt.image.RenderedImage render(String data, int width, int height) {
         // first we render the matrix completely unscaled. One pixel per byte.
         int size = calculateMatrixSize(data)
-        def hints =[ (EncodeHintType.ERROR_CORRECTION): ErrorCorrectionLevel.M, (EncodeHintType.CHARACTER_SET):'UTF8' ]
+        Hashtable hints =[ (EncodeHintType.ERROR_CORRECTION): ErrorCorrectionLevel.M, (EncodeHintType.CHARACTER_SET):'UTF8' ]
         BitMatrix matrix = qrcodeWriter.encode(data, format, size, size, hints)
 
         // NEVER allow the user to request an image smaller than the minimum pixels
